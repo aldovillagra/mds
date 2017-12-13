@@ -1,0 +1,8 @@
+---
+# defaults file for jackett
+jackett_requirements: ["mono-devel", "bzip2","libcurl4-openssl-dev","ca-certificates-mono"]
+jackett_version: "v0.8.500" # found on https://github.com/Jackett/Jackett/releases
+jackett_user: "dstation"
+jackett_ignore_ssl_errors: "false"
+jackett_port: 9117
+jackett_release_file_name: Jackett.Binaries.Mono.tar.gz

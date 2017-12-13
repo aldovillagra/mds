@@ -1,0 +1,42 @@
+---
+# tasks file for globalconfig
+
+# Update cache
+- apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+
+# Install default shell
+- apt:
+    name: zsh
+    state: present
+
+# Install sudo
+- apt:
+    name: sudo
+    state: present
+
+
+# Default group
+- group:
+    name: dstation
+    state: present
+
+
+# User by default
+- user:
+    name: dstation
+    group: dstation
+    home: /home/dstation
+    createhome: yes
+    shell: /bin/zsh
+
+- name: Add to sudoers
+  copy:
+    dest: /etc/sudoers.d/dstation
+    content: |
+             dstation  ALL=(ALL) ALL
+             dstation  ALL=(plone_daemon, plone_buildout) NOPASSWD:ALL
+             dstation  ALL=(root) NOPASSWD:/usr/bin/supervisorctl
+             #

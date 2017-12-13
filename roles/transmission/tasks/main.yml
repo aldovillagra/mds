@@ -1,0 +1,12 @@
+---
+# tasks file for transmission
+# install
+- apt:
+    name: transmission-daemon
+    state: present
+
+# Enable and start service 9091
+- service:
+    name: transmission-daemon
+    enabled: yes
+    state: started
